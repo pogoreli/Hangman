@@ -7,6 +7,7 @@ class HangmanLibrary:
     mistakesCount = 0
     score = 0
     word = ""
+    arrayOfCorrectLetters = []
 
     '''The library imports the words from the file on startup'''
     def __init__(self):
@@ -25,6 +26,11 @@ class HangmanLibrary:
         self.score = 0
         self.lettersAlreadyUsed = []
         self.word = self.pickRandomWord()
+        self.arrayOfCorrectLetters.clear()
+        for i in range(len(self.arrayOfCorrectLetters)-1):
+            self.arrayOfCorrectLetters[i] = "_"
+
+
 
     '''Picks a word from the list'''
     def pickRandomWord(self):
@@ -53,3 +59,10 @@ class HangmanLibrary:
             if symbol == letter:
                 return True
         return False
+
+    def getLetterPositionsInWord(self, letter):
+        letterLower = str(letter).lower()
+        for i in range(0,len(self.word)):
+            if(letterLower == self.word[i]):
+                self.arrayOfCorrectLetters[i] = letterLower
+        return self.arrayOfCorrectLetters
