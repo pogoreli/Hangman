@@ -18,7 +18,7 @@ class HangmanLibrary:
         with open('words.txt') as file:
             for line in file:
                 if len(line) >= 2:
-                    self.words.append(line.rstrip())
+                    self.words.append(line.rstrip().lower())
 
     '''Function called before each game. Resets score, mistakes count, and letters already used. Picks a new word for the game'''
     def startNewGame(self):
